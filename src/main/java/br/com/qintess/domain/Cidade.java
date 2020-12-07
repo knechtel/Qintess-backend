@@ -16,12 +16,24 @@ public class Cidade implements Serializable {
     private Estado estado;
     private Integer populacao;
 
+    public Cidade(Estado estado,String nome, Integer populacao) {
+        this.estado = estado;
+        this.nome = nome;
+        this.populacao = populacao;
+    }
+
+    public Cidade() {
+
+    }
+
     public Integer getId() {
         return id;
     }
+
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getNome() {
         return nome;
     }
