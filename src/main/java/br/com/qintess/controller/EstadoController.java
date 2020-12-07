@@ -37,15 +37,15 @@ public class EstadoController {
         List<Cidade> cidadeList = cidadeService.findByEstado(custoPopulacionalDTO.getIdEstado());
         Integer populacao = 0;
         Double custo = 0.0;
-        Integer cidadoDesconto = 0;
+        Integer cidadeDesconto = 0;
 
         Double regra = 0.0;
         for (Cidade c : cidadeList) {
             populacao = populacao + c.getPopulacao();
         }
         if (populacao > custoPopulacionalConfig.getValorDeCorte()) {
-            cidadoDesconto = populacao - custoPopulacionalConfig.getValorDeCorte();
-            regra = custoReajuste(cidadoDesconto);
+            cidadeDesconto = populacao - custoPopulacionalConfig.getValorDeCorte();
+            regra = custoReajuste(cidadeDesconto);
             custo = regra + custoPopulacionalConfig.getValorDeCorte() * custoPopulacionalConfig.getValorPessoa();
         } else {
             custo = populacao * custoPopulacionalConfig.getValorPessoa();
